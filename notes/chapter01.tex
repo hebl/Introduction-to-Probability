@@ -1,0 +1,48 @@
+\chapter{样本空间与概率}
+
+\section{集合}
+
+\subsection{集合运算}
+
+集合运算：交集、并集、补集
+
+\subsection{集合代数}
+
+\kw{德摩根定律 De Morgan's laws}
+
+$$(\bigcup_n S_n)^c = \bigcap S_n^c$$ 
+
+$$(\bigcap_n S_n)^c = \bigcup S_n^c$$ 
+
+\section{概率模型}
+
+\kw{样本空间} $\Omega$
+
+离散
+
+连续 $\Omega = \{(x,y) | 0 \leq x, y \leq 1 \}$ 
+
+\subsection{公理}
+ 
+ \kw{Probability Axioms}
+
+ \begin{ol}
+   \item $P(A) \geq 0$
+   \item $P(\Omega) = 1$
+   \item 如果 $A \cap B = \phi$，那么 $P(A \cup B) = P(A) + P(B)$
+ \end{ol}
+
+ 推论：
+
+\begin{ul}
+  \item $P(A) \leq 1$
+  \item $P(\phi) = 0$
+  \item $P(A) + P(A^c) = 1$
+  \item 独立事件：$$P(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^n P(A_i)$$
+  \item 如果 $A \subset B$，那么$P(A) \leq P(B)$
+  \item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+  \item $P(A \cup B) \leq P(A) + P(B)$
+\end{ul}
+
+
+\section{条件概率}
