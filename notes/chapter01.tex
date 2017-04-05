@@ -20,29 +20,79 @@ $$(\bigcap_n S_n)^c = \bigcup S_n^c$$
 
 离散
 
-连续 $\Omega = \{(x,y) | 0 \leq x, y \leq 1 \}$ 
+连续 $\Omega = \{(x,y) \mid 0 \leq x, y \leq 1 \}$ 
 
 \subsection{公理}
  
  \kw{Probability Axioms}
 
  \begin{ol}
-   \item $P(A) \geq 0$
-   \item $P(\Omega) = 1$
-   \item 如果 $A \cap B = \phi$，那么 $P(A \cup B) = P(A) + P(B)$
+   \item $\RSP(A) \geq 0$
+   \item $\RSP(\Omega) = 1$
+   \item 如果 $A \cap B = \phi$，那么 $\RSP(A \cup B) = \RSP(A) + \RSP(B)$
  \end{ol}
 
  推论：
 
 \begin{ul}
-  \item $P(A) \leq 1$
-  \item $P(\phi) = 0$
-  \item $P(A) + P(A^c) = 1$
-  \item 独立事件：$$P(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^n P(A_i)$$
-  \item 如果 $A \subset B$，那么$P(A) \leq P(B)$
-  \item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
-  \item $P(A \cup B) \leq P(A) + P(B)$
+  \item $\RSP(A) \leq 1$
+  \item $\RSP(\phi) = 0$
+  \item $\RSP(A) + \RSP(A^c) = 1$
+  \item 独立事件：$$\RSP(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^n \RSP(A_i)$$
+  \item 如果 $A \subset B$，那么$\RSP(A) \leq \RSP(B)$
+  \item $\RSP(A \cup B) = \RSP(A) + \RSP(B) - \RSP(A \cap B)$
+  \item $\RSP(A \cup B) \leq \RSP(A) + \RSP(B)$
 \end{ul}
 
 
 \section{条件概率}
+
+\kw{条件概率}：给定条件$B$发生之下$A$发生的概率。(\kt{这是定义，不是定理})
+
+$$\RSP (\wblue{A} \mid \wred{B}) = \frac{\RSP(\wblue{A} \cap \wred{B})}{\RSP(\wred{B})}$$
+
+当试验为有限集$\Omega$。那么：
+
+$$\RSP (\wblue{A} \mid \wred{B}) = \frac{\kt{事件}(\wblue{A} \cap \wred{B})\kt{的试验结果数}}{\kt{事件B的试验结果数}}$$
+
+条件概率也符合概率的公理：
+
+\begin{ol}
+   \item $\RSP(\wblue{A} \mid \wred{B}) \geq 0$
+   \item $\RSP(\Omega \mid \wred{B}) = 1$
+   \item $\RSP(\wred{B} \mid \wred{B}) = 1$
+   \item 如果 $\wblue{A} \cap C = \phi$，那么 $\RSP(\wblue{A} \cup C \mid \wred{B}) = \RSP(\wblue{A} \mid \wred{B}) + \RSP(C \mid \wred{B})$
+ \end{ol}
+
+ 乘法法则
+
+ $$\RSP (\wblue{A} \mid \wred{B}) = \frac{\RSP(\wblue{A} \cap \wred{B})}{\RSP(\wred{B})}$$
+
+\begin{align*}
+ \RSP(\wblue{A} \cap \wred{B}) & = \RSP(\wred{B}) \RSP (\wblue{A} \mid \wred{B}) \\
+ & = \RSP(\wblue{A}) \RSP (\wred{B} \mid \wblue{A})
+\end{align*}
+
+\section{全概率公式和贝叶斯准则}
+
+\subsection{全概率公式}
+
+ $$\RSP(\wred{B}) = \sum_i \RSP(\wblue{A_i})\RSP(\wred{B} \mid \wblue{A_i})$$
+
+\subsection{贝叶斯准则}
+
+%\begin{equation}
+\begin{align*}
+ \RSP(\wblue{A_i} \mid \wred{B}) & = \frac{\RSP(\wblue{A_i})\RSP(\wred{B} \mid \wblue{A_i})}{\RSP(\wred{B})} \\
+ & = \frac{\RSP(\wblue{A_i})\RSP(\wred{B} \mid \wblue{A_i})}{\sum_j \RSP(\wblue{A_j})\RSP(\wred{B} \mid \wblue{A_j})}
+ \end{align*}
+% \notag
+%\end{equation}
+
+\kw{贝叶斯推理}
+
+先验$\wred{A_i}$，后验$\wred{B}$
+
+$$A_i \xrightarrow[\RSP(\wred{B} \mid \wblue{A_i})]{\kt{模型}} \wred{B}$$
+
+$$\wred{B} \xrightarrow[\RSP(\wblue{A_i} \mid \wred{B})]{\kt{推理}} \wblue{A_i}$$
