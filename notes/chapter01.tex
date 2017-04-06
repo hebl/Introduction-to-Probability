@@ -96,3 +96,55 @@ $$\RSP (\wblue{A} \mid \wred{B}) = \frac{\kt{事件}(\wblue{A} \cap \wred{B})\kt
 $$A_i \xrightarrow[\RSP(\wred{B} \mid \wblue{A_i})]{\kt{模型}} \wred{B}$$
 
 $$\wred{B} \xrightarrow[\RSP(\wblue{A_i} \mid \wred{B})]{\kt{推理}} \wblue{A_i}$$
+
+\section{独立性}
+
+两个事件$A$和$B$相互独立，则满足：
+
+$$\RSP(A \cap B) = \RSP(A)\RSP(B)$$
+
+若$B$还满足$\RSP(B) > 0$，则独立性等价于
+
+$$\RSP(A \mid B) = \RSP(A)$$
+
+两个事件不相交不代表独立。不相交的事件 $\RSP(A \cap B) = 0 $，但$\RSP(A)\RSP(B) > 0$，显然这两个不是独立的。
+
+\kw{性质}
+
+\begin{ul}
+  \item 若$A$和$B$相互独立，则$A$和$A^c$也相互独立。
+  \item 条件独立：$\RSP(A \cap B \mid C) = \RSP(A \mid C)\RSP(B \mid C)$
+  \item 独立性并不蕴含条件独立性，反之亦然。
+\end{ul}
+
+\subsection{条件独立}
+
+若$\RSP(C) > 0$
+
+$$\RSP(A \cap B \mid C) = \RSP(A \mid C)\RSP(B \mid C)$$
+
+只要满足$\RSP(B \mid C) > 0$，则
+
+$$\RSP(A \mid B \cap C) = \RSP(A \mid C)$$
+
+\subsection{一组事件的独立性}
+
+设$A_1, \cdots, A_n$为$n$个事件，满足
+
+$$\RSP(\bigcap_{i \in S} A_i) = \prod_{i \in S} \RSP(A_i)$$
+
+对任意子集$S$成立，则称$A_1, \cdots, A_n$为互相独立事件。
+
+对事件$A_1, A_2, A_3$独立性条件来说，需要满足：
+
+$$\RSP(A_1 \cap A_2) = \RSP(A_1)\RSP(A_2)$$
+$$\RSP(A_1 \cap A_3) = \RSP(A_1)\RSP(A_3)$$
+$$\RSP(A_2 \cap A_3) = \RSP(A_2)\RSP(A_3)$$
+$$\RSP(A_1 \cap A_2 \cap A_3) = \RSP(A_1)\RSP(A_2)\RSP(A_3)$$
+
+因此有重要的一些\kt{性质}：
+
+\begin{ul}
+  \item \kt{两两独立}并不包含独立。
+  \item 等式 $\RSP(A_1 \cap A_2 \cap A_3) = \RSP(A_1)\RSP(A_2)\RSP(A_3)$不包含独立。
+\end{ul}
